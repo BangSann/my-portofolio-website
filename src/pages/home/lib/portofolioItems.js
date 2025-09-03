@@ -1,4 +1,4 @@
-export const carouselItems = [
+export const portofolioItems = [
   {
     id: "item0",
     src: "/logo/sanncode.png",

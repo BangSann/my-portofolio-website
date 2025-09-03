@@ -1,5 +1,4 @@
 import { useSpring, animated } from "@react-spring/web";
-import { FaBurger } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
@@ -10,15 +9,20 @@ const navItems = [
   },
   {
     title: "Contact",
-    link: "/",
+    link: "/contact",
   },
   {
     title: "Profile",
-    link: "/",
+    link: "/profile",
   },
 ];
 
 const Navbar = () => {
+  const currentPath = window.location.pathname;
+  // =============================
+  // Spring Animations
+  // =============================
+
   const navbarAnimation = useSpring({
     from: {
       height: "1000px",
@@ -85,7 +89,10 @@ const Navbar = () => {
   });
 
   return (
-    <animated.section className="shadow-md fixed w-full top-0 bg-white z-10" style={navbarAnimation}>
+    <animated.section
+      className="shadow-md fixed w-full top-0 bg-white z-10"
+      style={navbarAnimation}
+    >
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -93,7 +100,7 @@ const Navbar = () => {
               style={burgerAnimation}
               tabIndex={0}
               role="button"
-              className="btn btn-xs btn-ghost lg:hidden truncate"
+              className="btn btn-ghost lg:hidden truncate hover:bg-white hover:border-white"
             >
               <GiHamburgerMenu size={18} />
             </animated.button>
@@ -103,7 +110,9 @@ const Navbar = () => {
             >
               {navItems.map((nav, i) => (
                 <animated.li key={i} style={navListAnimation}>
-                  <Link to={nav.link}>{nav.title}</Link>
+                  <Link className={`font-light`} to={nav.link}>
+                    {nav.title}
+                  </Link>
                 </animated.li>
               ))}
             </ul>
@@ -120,14 +129,19 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             {navItems.map((nav, i) => (
               <animated.li key={i} style={navListAnimation}>
-                <Link to={nav.link}>{nav.title}</Link>
+                <Link
+                  className={`${nav.link == currentPath ? "font-medium" : "font-extralight"}`}
+                  to={nav.link}
+                >
+                  {nav.title}
+                </Link>
               </animated.li>
             ))}
           </ul>
         </div>
         <div className="navbar-end">
           <animated.button
-            className="btn rounded-full truncate"
+            className="btn btn-ghost shadow-xs bg-slate-50 rounded-full truncate text-slate-600 hover:bg-slate-100"
             style={buttonAnimation}
           >
             Hello, I'am Okta

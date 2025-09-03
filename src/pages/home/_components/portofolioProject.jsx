@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
-import { carouselItems } from "../lib/carouselItems";
+import { portofolioItems } from "../lib/portofolioItems";
 
 const PortofolioPage = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -71,7 +71,7 @@ const PortofolioPage = () => {
   // Handler tombol prev
   const handlePrev = (params) => {
     setCarouselIndex((prev) =>
-      prev === 0 ? carouselItems.length - 1 : prev - 1
+      prev === 0 ? portofolioItems.length - 1 : prev - 1
     );
     handleBannerTextAnimation(params.direction);
     buttonLinkApi.start({
@@ -84,7 +84,7 @@ const PortofolioPage = () => {
   // Handler tombol next
   const handleNext = (params) => {
     setCarouselIndex((prev) =>
-      prev === carouselItems.length - 1 ? 0 : prev + 1
+      prev === portofolioItems.length - 1 ? 0 : prev + 1
     );
     handleBannerTextAnimation(params.direction);
     buttonLinkApi.start({
@@ -101,29 +101,28 @@ const PortofolioPage = () => {
    */
 
   return (
-    <section className="min-h-screen container px-2 mx-auto flex flex-col justify-center">
+    <section className="min-h-screen container px-2 mx-auto flex flex-col justify-center relative" id="home">
       <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100vh)] gap-4 items-center">
-        
         {/* Banner Text */}
         <animated.div
           style={bannerTextAnimation}
           className="hidden md:block text-justify space-y-4"
         >
           <h1 className="text-4xl font-semibold text-slate-700">
-            {carouselItems[carouselIndex].title}
+            {portofolioItems[carouselIndex].title}
           </h1>
           <p className="text-slate-500 font-light">
-            {carouselItems[carouselIndex].deskripsi}
+            {portofolioItems[carouselIndex].deskripsi}
           </p>
 
           {/* Tombol link jika ada */}
-          {carouselItems[carouselIndex].link && (
+          {portofolioItems[carouselIndex].link && (
             <animated.a
               style={bannerLinkButtonAnimation}
-              href={carouselItems[carouselIndex].link}
+              href={portofolioItems[carouselIndex].link}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-md btn-outline items-center truncate flex gap-2"
+              className="btn btn-outline border-none shadow-sm flex gap-2 items-center justify-center truncate hover:bg-slate-50 hover:scale-105 duration-500"
             >
               <p>Visit Website</p>
               <BiLinkExternal size={18} />
@@ -137,7 +136,7 @@ const PortofolioPage = () => {
             className="flex flex-col h-full items-center"
             style={springStyle}
           >
-            {carouselItems.map((item, i) => {
+            {portofolioItems.map((item, i) => {
               const isActive = i === carouselIndex;
               return (
                 <div key={i}>
@@ -165,7 +164,7 @@ const PortofolioPage = () => {
                   </div>
 
                   {/* Spacer akhir */}
-                  {i === carouselItems.length - 1 && (
+                  {i === portofolioItems.length - 1 && (
                     <div className="flex-shrink-0 h-[30vh] w-screen"></div>
                   )}
                 </div>
@@ -178,21 +177,34 @@ const PortofolioPage = () => {
             <animated.button
               style={bannerButtonAnimation}
               onClick={() => handleNext({ direction: "down" })}
-              className="btn btn-circle"
-              disabled={carouselIndex === carouselItems.length - 1}
+              className="btn btn-circle border-none shadow-sm hover:bg-slate-50 hover:scale-105 duration-500"
+              disabled={carouselIndex === portofolioItems.length - 1}
             >
               <BsArrowUp size={18} />
             </animated.button>
             <animated.button
               style={bannerButtonAnimation}
               onClick={() => handlePrev({ direction: "up" })}
-              className="btn btn-circle"
+              className="btn btn-circle border-none shadow-sm hover:bg-slate-50 hover:scale-105 duration-500"
               disabled={carouselIndex === 0}
             >
               <BsArrowDown size={18} />
             </animated.button>
           </div>
         </div>
+      </div>
+
+      <div className="absolute grid grid-cols-1 w-full h-screen top-0 left-0 place-items-center pointer-events-none select-none">
+        <div className="flex flex-col text-xl font-bold transform -rotate-90 -translate-x-160 -translate-y-25">
+          <animated.hr style={bannerImageAnimation} className="w-[150px] text-slate-950"/>
+        </div>
+        <div className="flex flex-col text-xl font-bold transform -rotate-90 -translate-x-160 translate-y-25">
+          <animated.hr style={bannerImageAnimation} className="w-[200px] text-slate-950"/>
+        </div>
+      </div>
+
+      <div className="absolute bottom-4 left-4 text-slate-300 select-none">
+        <h1>Portofolio Project | SannCode</h1>
       </div>
     </section>
   );
