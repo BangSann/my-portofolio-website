@@ -1,14 +1,14 @@
 export const portofolioItems = [
   {
     id: "item0",
-    src: "/logo/sanncode.png",
+    src: "/portofolio/myprofile.png",
     title: "My Profile",
     deskripsi:
       "Perkenalkan, saya Yosan Okta Odhianto, seorang Web Developer yang berfokus pada pengembangan aplikasi berbasis React, Tailwind, serta teknologi backend modern. Berpengalaman membangun sistem manajemen, website interaktif, dan aplikasi pembelajaran dengan pendekatan clean code dan user-friendly.",
   },
   {
     id: "item1",
-    src: "/logo/sanncode.png",
+    src: "/portofolio/panjinusantara.png",
     title: "Panji Kediri",
     deskripsi:
       "Platform digital yang menyajikan informasi budaya dan sejarah Kediri, dikemas dengan tampilan modern dan interaktif.",
@@ -16,7 +16,7 @@ export const portofolioItems = [
   },
   {
     id: "item2",
-    src: "/logo/sanncode.png",
+    src: "/portofolio/edubaca.png",
     title: "Edu Baca",
     deskripsi:
       "Aplikasi pembelajaran membaca untuk anak-anak dengan pendekatan interaktif agar belajar terasa menyenangkan.",
@@ -24,7 +24,7 @@ export const portofolioItems = [
   },
   {
     id: "item3",
-    src: "/logo/sanncode.png",
+    src: "/portofolio/desakarangrejo.png",
     title: "Profile Desa Karangrejo",
     deskripsi:
       "Website resmi yang menampilkan profil desa, data penduduk, kegiatan masyarakat, dan informasi pembangunan desa.",
@@ -32,7 +32,7 @@ export const portofolioItems = [
   },
   {
     id: "item4",
-    src: "/logo/sanncode.png",
+    src: "/portofolio/greeve.png",
     title: "Greeve",
     deskripsi:
       "Sebuah inovasi aplikasi ramah lingkungan yang membantu masyarakat mengelola sampah dan mendukung gaya hidup hijau.",

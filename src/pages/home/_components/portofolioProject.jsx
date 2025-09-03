@@ -151,7 +151,7 @@ const PortofolioPage = () => {
                       style={bannerImageAnimation}
                       src={item.src}
                       alt={item.id}
-                      className={`object-cover w-50 transition-transform duration-1200 ${
+                      className={`object-cover w-50 transition-transform duration-1200 rounded-4xl grayscale-100 ${
                         isActive
                           ? "scale-120"
                           : `scale-40 opacity-25 translate-x-70 ${
