@@ -129,7 +129,7 @@ const PortofolioPage = () => {
       </div>
 
       <section
-        className="min-h-screen container px-2 mx-auto flex flex-col justify-center relative"
+        className="min-h-screen container px-2 mx-auto flex flex-col justify-center relative overflow-hidden"
         id="home"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100vh)] gap-4 items-center">

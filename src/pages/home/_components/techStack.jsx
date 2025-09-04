@@ -154,10 +154,10 @@ const TechStack = () => {
 
         {/* Decorative animated lines */}
 
-        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute top-25 -left-25">
-          <animated.hr style={bannerImageAnimation} className="w-[200px]" />
+        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute top-[100px] -left-[100px]">
+          <animated.hr style={bannerImageAnimation} className="w-[200px] " />
         </div>
-        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute bottom-25 -left-25">
+        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute bottom-[100px] -left-[100px] ">
           <animated.hr style={bannerImageAnimation} className="w-[200px]" />
         </div>
 
