@@ -153,14 +153,13 @@ const TechStack = () => {
         </div>
 
         {/* Decorative animated lines */}
-        {/* <div className="absolute grid grid-cols-1 w-full h-screen top-0 left-0 place-items-center pointer-events-none select-none">
-          <div className="flex flex-col text-xl font-bold transform -rotate-90 -translate-x-160 -translate-y-35">
-            <animated.hr style={bannerImageAnimation} className="w-[150px]" />
-          </div>
-          <div className="flex flex-col text-xl font-bold transform -rotate-90 -translate-x-160 translate-y-25">
-            <animated.hr style={bannerImageAnimation} className="w-[200px]" />
-          </div>
-        </div> */}
+
+        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute top-25 -left-25">
+          <animated.hr style={bannerImageAnimation} className="w-[200px]" />
+        </div>
+        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute bottom-25 -left-25">
+          <animated.hr style={bannerImageAnimation} className="w-[200px]" />
+        </div>
 
         <div className="absolute bottom-4 left-4 text-slate-300 select-none">
           <h1>Tech Stack | SannCode</h1>
