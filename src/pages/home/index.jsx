@@ -5,11 +5,11 @@ import TechStack from "./_components/techStack";
 
 const HomePage = () => {
   return (
-    <MainLayout>
+    <>
       <PortofolioPage />
-      <TechStack/>
-      <Statistic/>
-    </MainLayout>
+      <TechStack />
+      <Statistic />
+    </>
   );
 };
 
