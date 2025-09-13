@@ -14,10 +14,10 @@ const ModalPortofolio = ({ isOpen, onClose, data }) => {
           </button>
         </form>
         <div className="text-start space-y-4">
-          <h1 className="text-4xl font-semibold text-slate-700">
+          <h1 className="text-xl font-semibold text-slate-700">
             {data?.title}
           </h1>
-          <p className="text-slate-500 font-light text-justify">{data?.deskripsi}</p>
+          <p className="text-slate-500 font-light text-justify text-sm">{data?.deskripsi}</p>
 
           {/* Tombol link jika ada */}
           {data?.link && (
