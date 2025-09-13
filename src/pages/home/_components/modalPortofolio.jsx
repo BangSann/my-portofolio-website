@@ -2,7 +2,7 @@ import { BiLinkExternal } from "react-icons/bi";
 
 const ModalPortofolio = ({ isOpen, onClose, data }) => {
   return (
-    <dialog open={isOpen} id="portofolioModal" className="modal">
+    <dialog open={isOpen} id="portofolioModal" className="modal md:hidden">
       <div className="modal-box">
         <form method="dialog">
           {/* if there is a button in form, it will close the modal */}
