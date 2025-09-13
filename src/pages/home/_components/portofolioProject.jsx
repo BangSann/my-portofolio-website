@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
-import { BsArrowDown, BsArrowUp } from "react-icons/bs";
+import { BsArrowDown, BsArrowUp, BsEye } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
 import { portofolioItems } from "../lib/portofolioItems";
+import ModalPortofolio from "./modalPortofolio";
 
 const PortofolioPage = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -110,6 +111,12 @@ const PortofolioPage = () => {
     }));
   }, [count]);
 
+  // modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => setIsModalOpen(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  // modal state
+
   return (
     <section className={`relative bg-white`}>
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none select-none">
@@ -176,21 +183,25 @@ const PortofolioPage = () => {
                     )}
 
                     {/* Gambar */}
-                    <div className="flex-shrink-0 w-full flex h-[40vh] items-center justify-center">
+                    <div className="flex-shrink-0 w-full flex h-[40vh] items-center justify-center relative">
                       <animated.img
+                        onClick={() => {
+                          setSelectedProject(item);
+                          setIsModalOpen(true);
+                        }}
                         style={bannerImageAnimation}
                         src={item.src}
                         alt={item.id}
-                        className={`object-cover w-50 transition-transform duration-1200 rounded-md grayscale-100 ${
+                        className={`object-contain w-50 transition-transform duration-1200 rounded-md grayscale-600 ${
                           isActive
                             ? "scale-120"
-                            : `scale-40 opacity-25 translate-x-70 ${
+                            : `scale-40 opacity-25 translate-x-68 ${
                                 i > carouselIndex
                                   ? "-translate-y-20"
                                   : "translate-y-20"
                               }`
                         }`}
-                      />
+                      ></animated.img>
                     </div>
 
                     {/* Spacer akhir */}
@@ -235,6 +246,12 @@ const PortofolioPage = () => {
           <h1>Portofolio Project | SannCode</h1>
         </div>
       </section>
+
+      <ModalPortofolio
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        data={selectedProject}
+      />
     </section>
   );
 };

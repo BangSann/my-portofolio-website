@@ -1,4 +1,6 @@
 import { useSpring, animated } from "@react-spring/web";
+import { useState } from "react";
+import { BiSun, BiMoon } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
@@ -60,19 +62,6 @@ const Navbar = () => {
     config: { duration: 1000 },
   });
 
-  const buttonAnimation = useSpring({
-    from: {
-      width: "0px",
-      opacity: 0,
-    },
-    to: {
-      width: "130px",
-      opacity: 1,
-    },
-    delay: 3500,
-    config: { duration: 1000 },
-  });
-
   const burgerAnimation = useSpring({
     from: {
       width: "0px",
@@ -87,6 +76,29 @@ const Navbar = () => {
     delay: 3800,
     config: { duration: 1000 },
   });
+
+  // mod button state
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const buttonAnimation = useSpring({
+    from: {
+      width: "0px",
+      opacity: 0,
+    },
+    to: {
+      width: "60px",
+      opacity: 1,
+    },
+    delay: 3500,
+    config: { duration: 1000 },
+  });
+
+  const { x } = useSpring({
+    x: isDarkMode ? 16 : -12, // geser kanan kalau dark, geser kiri kalau light
+    config: { tension: 500, friction: 100 },
+  });
+
+  // mod button state
 
   return (
     <animated.section
@@ -130,7 +142,9 @@ const Navbar = () => {
             {navItems.map((nav, i) => (
               <animated.li key={i} style={navListAnimation}>
                 <Link
-                  className={`${nav.link == currentPath ? "font-medium" : "font-extralight"}`}
+                  className={`${
+                    nav.link == currentPath ? "font-medium" : "font-extralight"
+                  }`}
                   to={nav.link}
                 >
                   {nav.title}
@@ -141,10 +155,26 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <animated.button
-            className="btn btn-ghost shadow-xs bg-slate-50 rounded-full truncate text-slate-600 hover:bg-slate-100"
+            className={`relative p-4 rounded-full relative flex items-center bg-slate-200 hover:bg-slate-300 cursor-pointer inset-shadow-md`}
             style={buttonAnimation}
+            onClick={() => setIsDarkMode(!isDarkMode)}
           >
-            Hello, I'am Okta
+            <animated.span
+              className={`absolute w-6 h-6 flex items-center justify-center rounded-full shadow-md ${
+                isDarkMode ? "bg-slate-500" : "bg-white"
+              } transition-colors duration-1000`}
+              style={{
+                transform: x.to(
+                  (val) => `translateX(${val}px) rotate(${val * 4}deg)`
+                ),
+              }}
+            >
+              {isDarkMode ? (
+                <BiMoon className="text-white" />
+              ) : (
+                <BiSun className="text-orange-400" />
+              )}
+            </animated.span>
           </animated.button>
         </div>
       </div>

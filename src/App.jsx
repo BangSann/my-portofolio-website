@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home";
@@ -10,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MainLayout><HomePage/></MainLayout>} />
+        <Route index element={<HomePage/>} />
         <Route path="contact" element={<MainLayout>Contact</MainLayout>} />
         <Route path="profile" element={<MainLayout>Profile</MainLayout>} />
       </Routes>
