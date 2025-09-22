@@ -68,7 +68,7 @@ const TechStack = () => {
   };
 
   return (
-    <section className="bg-slate-50">
+    <section className="bg-[#273036]" id="tech">
       <section className="container px-2 mx-auto flex items-center lg:justify-center relative h-[calc(100vh-65px)] py-[65px] overflow-hidden">
         <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-4 w-full h-full">
           <div className="h-1/2 flex flex-col lg:flex-row lg:items-center justify-center gap-4 lg:w-1/3">
@@ -90,13 +90,13 @@ const TechStack = () => {
             >
               <animated.h1
                 style={selectedTechAnimated}
-                className="text-4xl font-bold mb-4"
+                className="text-4xl font-bold mb-4 text-slate-50"
               >
                 {selectedTech?.title}
               </animated.h1>
               <animated.p
                 style={selectedTechAnimated}
-                className="text-slate-600 text-justify font-light "
+                className="text-slate-50 text-justify font-light "
               >
                 {selectedTech?.deskripsi}
               </animated.p>
@@ -125,18 +125,18 @@ const TechStack = () => {
                   <animated.div
                     style={techStackAnimated}
                     key={item.id}
-                    className="w-full"
+                    className="w-full "
                     onClick={() => {
                       handleSelectedTechAnimation();
                       setSelectedTech(item);
                     }}
                   >
                     <div
-                      className={`shadow-sm rounded-lg w-full h-full transition-transform duration-500 cursor-pointer flex justify-center items-center
+                      className={`shadow-sm shadow-white rounded-lg w-full h-full transition-transform duration-500 cursor-pointer flex justify-center items-center
                       ${
                         item.id === selectedTech?.id
                           ? "bg-slate-200 transform -translate-x-20 scale-150 opacity-0 pointer-events-none"
-                          : "bg-white hover:scale-110"
+                          : "bg-slate-400 hover:scale-110"
                       }`}
                     >
                       <img
@@ -154,14 +154,11 @@ const TechStack = () => {
 
         {/* Decorative animated lines */}
 
-        <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute top-[100px] -left-[100px]">
-          <animated.hr style={bannerImageAnimation} className="w-[200px] " />
-        </div>
         <div className="flex flex-col text-xl font-bold transform -rotate-90 absolute bottom-[100px] -left-[100px] ">
-          <animated.hr style={bannerImageAnimation} className="w-[200px]" />
+          <animated.hr style={bannerImageAnimation} className="w-[200px] text-slate-50 hidden lg:block" />
         </div>
 
-        <div className="absolute bottom-4 left-4 text-slate-300 select-none">
+        <div className="absolute bottom-4 left-2 lg:left-4 text-slate-300 select-none">
           <h1>Tech Stack | SannCode</h1>
         </div>
       </section>

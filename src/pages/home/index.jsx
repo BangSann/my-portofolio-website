@@ -1,6 +1,6 @@
 import MainLayout from "../../_components/layout";
+import ContactPage from "./_components/contact";
 import PortofolioPage from "./_components/portofolioProject";
-import Statistic from "./_components/statistic";
 import TechStack from "./_components/techStack";
 
 const HomePage = () => {
@@ -8,7 +8,7 @@ const HomePage = () => {
     <MainLayout>
       <PortofolioPage />
       <TechStack />
-      <Statistic />
+      <ContactPage/>
     </MainLayout>
   );
 };

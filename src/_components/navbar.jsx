@@ -7,15 +7,15 @@ import { Link } from "react-router-dom";
 const navItems = [
   {
     title: "Home",
-    link: "/",
+    link: "#home",
+  },
+  {
+    title: "Tech",
+    link: "#tech",
   },
   {
     title: "Contact",
-    link: "/contact",
-  },
-  {
-    title: "Profile",
-    link: "/profile",
+    link: "#contact",
   },
 ];
 
@@ -102,7 +102,7 @@ const Navbar = () => {
 
   return (
     <animated.section
-      className="shadow-md fixed w-full top-0 bg-white z-10"
+      className="shadow-md fixed w-full top-0 bg-slate-50 z-10"
       style={navbarAnimation}
     >
       <div className="navbar container mx-auto">
@@ -122,40 +122,41 @@ const Navbar = () => {
             >
               {navItems.map((nav, i) => (
                 <animated.li key={i} style={navListAnimation}>
-                  <Link className={`font-light`} to={nav.link}>
+                  <a className="font-light" href={nav.link}>
                     {nav.title}
-                  </Link>
+                  </a>
                 </animated.li>
               ))}
             </ul>
           </div>
 
           <animated.div style={logoAnimation}>
-            <Link to={"/"} className="flex items-center">
+            <a href="/" className="flex items-center">
               <img src="/logo/sanncode.png" className="w-4" />
               <span className="text-lg font-semibold">annCode</span>
-            </Link>
+            </a>
           </animated.div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {navItems.map((nav, i) => (
               <animated.li key={i} style={navListAnimation}>
-                <Link
+                <a
                   className={`${
-                    nav.link == currentPath ? "font-medium" : "font-extralight"
+                    nav.link == "/" ? "font-medium" : "font-light "
                   }`}
-                  to={nav.link}
+                  href={nav.link}
                 >
                   {nav.title}
-                </Link>
+                </a>
               </animated.li>
             ))}
           </ul>
         </div>
+
         <div className="navbar-end">
           <animated.button
-            className={`relative p-4 rounded-full relative flex items-center bg-slate-200 hover:bg-slate-300 cursor-pointer inset-shadow-md`}
+            className={`relative p-4 rounded-full flex items-center bg-slate-200 hover:bg-slate-300 cursor-pointer inset-shadow-md`}
             style={buttonAnimation}
             onClick={() => setIsDarkMode(!isDarkMode)}
           >
