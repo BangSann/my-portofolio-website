@@ -132,7 +132,7 @@ const Navbar = () => {
 
           <animated.div style={logoAnimation}>
             <a href="/" className="flex items-center">
-              <img src="/logo/sanncode.png" className="w-4" />
+              <img src="/logo/sanncode.png" className="w-4" alt="sanncode-logo"/>
               <span className="text-lg font-semibold">annCode</span>
             </a>
           </animated.div>

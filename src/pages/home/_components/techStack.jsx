@@ -79,7 +79,7 @@ const TechStack = () => {
               <animated.img
                 style={selectedTechAnimated}
                 src={selectedTech?.src || "/react.png"}
-                alt={selectedTech?.title || "React"}
+                alt={selectedTech?.title || "React-logo"}
                 className="w-30 h-30 object-contain m-2"
               />
             </animated.div>
@@ -114,7 +114,7 @@ const TechStack = () => {
                 <animated.img
                   style={selectedTechAnimated}
                   src={selectedTech?.src || "/react.png"}
-                  alt={selectedTech?.title || "React"}
+                  alt={selectedTech?.title || "React-logo"}
                   className="w-50 h-50 object-contain m-2"
                 />
               </animated.div>
